@@ -1,31 +1,12 @@
 <html>
-<head>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    h1 { text-align: center; }
-    .query-box { background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-    .query-box h2 { margin-top: 0; }
-    .container { display: flex; gap: 40px; }
-    .column { flex: 1; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
-    .column h2 { margin-top: 0; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
-    .content { white-space: pre-wrap; }
-  </style>
-</head>
 <body>
-  <h1>PARA BRAIN Comparison</h1>
-  <div class="query-box">
-    <h2>Your Query</h2>
-    <p>{{ $('Webhook').first().json.body.query }}</p>
-  </div>
-  <div class="container">
-    <div class="column">
-      <h2>Tuned Response</h2>
-      <div class="content">{{ $('OpenAI').first().json.output[1].content[0].text }}</div>
-    </div>
-    <div class="column">
-      <h2>Raw Response</h2>
-      <div class="content">{{ $('OpenAI raw').first().json.output[1].content[0].text }}</div>
-    </div>
-  </div>
+  <h1>PARA BRAIN Query</h1>
+  <form action="https://rperovich.app.n8n.cloud/webhook/a1f9ff2b-cd37-46b1-ab19-e4e95532af57" method="POST">
+    <textarea name="query" rows="4" cols="50" placeholder="Enter your query..."></textarea>
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
+
+
